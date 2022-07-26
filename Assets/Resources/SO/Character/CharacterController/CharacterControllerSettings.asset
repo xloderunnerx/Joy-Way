@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dec43f366ce9fb429b2ab9a19f7232d, type: 3}
+  m_Name: CharacterControllerSettings
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: movementBehaviour
+      Entry: 7
+      Data: 0|Core.Behaviour.Movement.VelocitySetMovementBehaviour, Assembly-CSharp
+    - Name: velocityMultiplier
+      Entry: 4
+      Data: 8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: cameraRotationBehaviour
+      Entry: 7
+      Data: 1|Core.Behaviour.Rotation.AnglesAppendRotationBehaviour, Assembly-CSharp
+    - Name: speedH
+      Entry: 4
+      Data: 0
+    - Name: speedV
+      Entry: 4
+      Data: 2
+    - Name: speedD
+      Entry: 4
+      Data: 0
+    - Name: rotateYaw
+      Entry: 5
+      Data: false
+    - Name: rotatePitch
+      Entry: 5
+      Data: true
+    - Name: rotateRoll
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: characterRotationBehaviour
+      Entry: 7
+      Data: 2|Core.Behaviour.Rotation.AnglesAppendRotationBehaviour, Assembly-CSharp
+    - Name: speedH
+      Entry: 4
+      Data: 2
+    - Name: speedV
+      Entry: 4
+      Data: 0
+    - Name: speedD
+      Entry: 4
+      Data: 0
+    - Name: rotateYaw
+      Entry: 5
+      Data: true
+    - Name: rotatePitch
+      Entry: 5
+      Data: false
+    - Name: rotateRoll
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
