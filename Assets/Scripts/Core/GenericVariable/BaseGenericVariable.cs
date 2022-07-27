@@ -11,14 +11,14 @@ namespace Core.GenericVariable
     {
         [OdinSerialize] private T variable;
 
-        public Action<T> OnValueChanged;
+        public Action<T> OnVariableChanged;
 
         public T Variable
         {
             get => variable; set
             {
                 variable = value;
-                OnValueChanged?.Invoke(variable);
+                OnVariableChanged?.Invoke(variable);
             }
         }
     }
