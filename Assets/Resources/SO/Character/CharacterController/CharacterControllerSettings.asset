@@ -33,48 +33,45 @@ MonoBehaviour:
     - Name: cameraRotationBehaviour
       Entry: 7
       Data: 1|Core.Behaviour.Rotation.AnglesAppendRotationBehaviour, Assembly-CSharp
-    - Name: speedH
-      Entry: 4
-      Data: 0
-    - Name: speedV
+    - Name: sensetivityX
       Entry: 4
       Data: 2
-    - Name: speedD
+    - Name: sensetivityY
       Entry: 4
-      Data: 0
-    - Name: rotateYaw
-      Entry: 5
-      Data: false
-    - Name: rotatePitch
+      Data: 2
+    - Name: smoothness
+      Entry: 4
+      Data: 9.5
+    - Name: rotationX
       Entry: 5
       Data: true
-    - Name: rotateRoll
+    - Name: rotationY
       Entry: 5
-      Data: false
+      Data: true
+    - Name: clampX
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
-    - Name: characterRotationBehaviour
+    - Name: clampY
       Entry: 7
-      Data: 2|Core.Behaviour.Rotation.AnglesAppendRotationBehaviour, Assembly-CSharp
-    - Name: speedH
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
       Entry: 4
-      Data: 2
-    - Name: speedV
+      Data: -90
+    - Name: 
       Entry: 4
-      Data: 0
-    - Name: speedD
-      Entry: 4
-      Data: 0
-    - Name: rotateYaw
-      Entry: 5
-      Data: true
-    - Name: rotatePitch
-      Entry: 5
-      Data: false
-    - Name: rotateRoll
-      Entry: 5
-      Data: false
+      Data: 90
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 8
       Data: 

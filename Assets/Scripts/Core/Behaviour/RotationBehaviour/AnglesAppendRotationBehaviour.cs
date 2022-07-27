@@ -7,34 +7,34 @@ namespace Core.Behaviour.Rotation
 {
     public class AnglesAppendRotationBehaviour : IRotationBehaviour<Transform>
     {
-        [OdinSerialize] private float speedH;
-        [OdinSerialize] private float speedV;
-        [OdinSerialize] private float speedD;
+        [OdinSerialize] private float sensetivityX;
+        [OdinSerialize] private float sensetivityY;
+        [Tooltip("Lesser – slower.")] [OdinSerialize] private float smoothness;
 
-        [OdinSerialize] private bool rotateYaw;
-        [OdinSerialize] private bool rotatePitch;
-        [OdinSerialize] private bool rotateRoll;
+        [OdinSerialize] private bool rotationX;
+        [OdinSerialize] private bool rotationY;
 
-        private float yaw;
-        private float pitch;
-        private float roll;
+        [OdinSerialize] private Vector2 clampX;
+        [OdinSerialize] private Vector2 clampY;
 
-        public AnglesAppendRotationBehaviour(float speedH, float speedV, float speedD)
+        private float x;
+        private float y;
+
+        public AnglesAppendRotationBehaviour(float sensetivityH, float sensetivityV)
         {
-            this.speedH = speedH;
-            this.speedV = speedV;
-            this.speedD = speedD;
+            this.sensetivityX = sensetivityH;
+            this.sensetivityY = sensetivityV;
         }
 
         public void Rotate(Transform context, Vector3 rotation)
         {
-            if (rotateYaw)
-                yaw += speedH * rotation.x;
-            if (rotatePitch)
-                pitch -= speedV * rotation.z;
-            if (rotateRoll)
-                roll += speedD * rotation.y;
-            context.transform.eulerAngles = new Vector3(pitch, yaw, roll);
+            if (rotationX)
+                x += sensetivityX * rotation.x;
+            if (rotationY)
+                y -= sensetivityY * rotation.z;
+            x = (clampX.x == 0 && clampX.y == 0) ? x : Mathf.Clamp(x, clampX.x, clampX.y);
+            y = (clampY.x == 0 && clampY.y == 0) ? y : Mathf.Clamp(y, clampY.x, clampY.y);
+            context.rotation = Quaternion.Slerp(context.rotation, Quaternion.Euler(new Vector3(y, x, 0)), Time.deltaTime * smoothness);
         }
     }
 }

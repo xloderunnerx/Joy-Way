@@ -12,10 +12,8 @@ namespace Character.SO
     {
         [OdinSerialize] private IMovementBehaviour<Rigidbody> movementBehaviour;
         [OdinSerialize] private IRotationBehaviour<Transform> cameraRotationBehaviour;
-        [OdinSerialize] private IRotationBehaviour<Transform> characterRotationBehaviour;
 
         public IMovementBehaviour<Rigidbody> MovementBehaviour { get => movementBehaviour; set => movementBehaviour = value; }
         public IRotationBehaviour<Transform> CameraRotationBehaviour { get => cameraRotationBehaviour; set => cameraRotationBehaviour = value; }
-        public IRotationBehaviour<Transform> CharacterRotationBehaviour { get => characterRotationBehaviour; set => characterRotationBehaviour = value; }
     }
 }
