@@ -1,4 +1,5 @@
 using Core.GenericVariable;
+using Scarecrow.SO;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using System.Collections;
@@ -9,6 +10,6 @@ namespace Scarecrow.Component
 {
     public class BaseScarecrow : SerializedMonoBehaviour
     {
-        [OdinSerialize] private IntVariable healthPoints;
+        [OdinSerialize] private ScarecrowSettings scarecrowSettings;
     }
 }
