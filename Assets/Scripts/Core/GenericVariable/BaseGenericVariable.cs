@@ -21,5 +21,7 @@ namespace Core.GenericVariable
                 OnVariableChanged?.Invoke(variable);
             }
         }
+
+        private void OnValidate() => OnVariableChanged?.Invoke(variable);
     }
 }

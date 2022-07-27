@@ -17,6 +17,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: fb4aecb4b6171364a8bbc8e2dce20173, type: 2}
+    - {fileID: 11400000, guid: c9a54ab712372b34cb5dd181d6097ab8, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -25,3 +26,6 @@ MonoBehaviour:
     - Name: helathPoints
       Entry: 10
       Data: 0
+    - Name: helathPointsMax
+      Entry: 10
+      Data: 1

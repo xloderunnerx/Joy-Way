@@ -11,5 +11,9 @@ namespace Scarecrow.SO
     public class ScarecrowSettings : SerializedScriptableObject
     {
         [OdinSerialize] private IntVariable helathPoints;
+        [OdinSerialize] private IntVariable helathPointsMax;
+
+        public IntVariable HelathPoints { get => helathPoints; set => helathPoints = value; }
+        public IntVariable HelathPointsMax { get => helathPointsMax; set => helathPointsMax = value; }
     }
 }
