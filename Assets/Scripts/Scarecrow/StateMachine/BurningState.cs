@@ -50,7 +50,6 @@ namespace Scarecrow.StateMachine
         {
             for(int i = 10; i >= 0; i--)
             {
-                Debug.Log(i);
                 healthPoints.Variable -= 5;
                 yield return new WaitForSeconds(1f);
             }

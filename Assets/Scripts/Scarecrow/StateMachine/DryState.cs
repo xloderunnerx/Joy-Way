@@ -27,12 +27,12 @@ namespace Scarecrow.StateMachine
 
         public override void Enter()
         {
-            Debug.Log("Entering IdeleState.");
+            
         }
 
         public override void Exit()
         {
-            Debug.Log("Exiting IdeleState.");
+            
         }
 
         public override void Update()

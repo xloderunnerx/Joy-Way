@@ -49,7 +49,7 @@ namespace Scarecrow.Component
         {
             stateMachine = new ScarecrowStateMachine();
             dryState = new DryState(this, stateMachine, healthPoints);
-            inWaterState = new InWaterState(this, stateMachine, healthPoints);
+            inWaterState = new InWaterState(this, stateMachine, healthPoints, material);
             burningState = new BurningState(this, stateMachine, healthPoints, material);
             stateMachine.InitStateMachine(dryState);
         }
