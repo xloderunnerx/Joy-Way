@@ -25,7 +25,7 @@ namespace Scarecrow.Behaviour
 
             var value = (float)((float)health / (float)maxHealth);
             sequence.Append(
-                meshTransform.DOScale(new Vector3(meshTransform.localScale.x, defaultScale.y * value, meshTransform.localScale.z), 0.05f)
+                meshTransform.DOScale(new Vector3(meshTransform.localScale.x, Mathf.Clamp(defaultScale.y * value, 0, defaultScale.y), meshTransform.localScale.z), 0.05f)
             );
             var newColor = new Color(1 - value, value, 0);
             sequence.Join(

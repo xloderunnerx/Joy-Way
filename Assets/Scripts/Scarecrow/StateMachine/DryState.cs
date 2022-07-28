@@ -1,3 +1,4 @@
+using Core.GenericVariable;
 using Core.StateMachine;
 using Scarecrow.Component;
 using Sirenix.Serialization;
@@ -7,14 +8,21 @@ using UnityEngine;
 
 namespace Scarecrow.StateMachine
 {
-    public class IdleState : BaseState
+    public class DryState : BaseState
     {
-        [OdinSerialize] private BaseScarecrow baseScarecrow;
+        private BaseScarecrow baseScarecrow;
+        private IntVariable healthPoints;
 
-        public IdleState(BaseScarecrow scarecrow, BaseStateMachine stateMachine)
+        public DryState(BaseScarecrow scarecrow, BaseStateMachine stateMachine, IntVariable healthPoints)
         {
             this.baseScarecrow = scarecrow;
             this.stateMachine = stateMachine;
+            this.healthPoints = healthPoints;
+        }
+
+        public override void DealDamage(int value)
+        {
+            healthPoints.Variable -= value;
         }
 
         public override void Enter()

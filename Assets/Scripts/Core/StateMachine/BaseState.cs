@@ -11,6 +11,7 @@ namespace Core.StateMachine
 
         public abstract void Enter();
         public abstract void Update();
+        public abstract void DealDamage(int value);
         public abstract void Exit();
     }
 }

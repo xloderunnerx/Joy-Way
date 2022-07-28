@@ -1434,6 +1434,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: 084da0c3d699e0d49a515e2d9546adee, type: 2}
+    - {fileID: 11400000, guid: fb4aecb4b6171364a8bbc8e2dce20173, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -1442,6 +1443,9 @@ MonoBehaviour:
     - Name: scarecrowSettings
       Entry: 10
       Data: 0
+    - Name: healthPoints
+      Entry: 10
+      Data: 1
 --- !u!1 &2098141653
 GameObject:
   m_ObjectHideFlags: 0

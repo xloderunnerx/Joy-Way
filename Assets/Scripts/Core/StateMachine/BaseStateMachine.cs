@@ -7,7 +7,9 @@ namespace Core.StateMachine
 {
     public abstract class BaseStateMachine
     {
-        public BaseState currentState;
+        private BaseState currentState;
+
+        public BaseState CurrentState { get => currentState; set => currentState = value; }
 
         public virtual void InitStateMachine(BaseState state)
         {

@@ -1,3 +1,4 @@
+using Core.GenericVariable;
 using Core.StateMachine;
 using Scarecrow.Component;
 using Sirenix.Serialization;
@@ -9,12 +10,21 @@ namespace Scarecrow.StateMachine
 {
     public class InWaterState : BaseState
     {
-        [OdinSerialize] private BaseScarecrow baseScarecrow;
+        private BaseScarecrow baseScarecrow;
+        private IntVariable healthPoints;
+        private int damageBuff;
 
-        public InWaterState(BaseScarecrow scarecrow, BaseStateMachine stateMachine)
+        public InWaterState(BaseScarecrow scarecrow, BaseStateMachine stateMachine, IntVariable healthPoints)
         {
             this.baseScarecrow = scarecrow;
             this.stateMachine = stateMachine;
+            this.healthPoints = healthPoints;
+            damageBuff = -10;
+        }
+
+        public override void DealDamage(int value)
+        {
+            healthPoints.Variable -= value + damageBuff;
         }
 
         public override void Enter()
