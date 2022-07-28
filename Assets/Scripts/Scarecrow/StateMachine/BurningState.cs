@@ -14,6 +14,7 @@ namespace Scarecrow.StateMachine
         private IntVariable healthPoints;
         private int damageBuff;
         private Material material;
+        private Coroutine burningRoutine;
 
         public BurningState(BaseScarecrow scarecrow, BaseStateMachine stateMachine, IntVariable healthPoints, Material material)
         {
@@ -32,12 +33,12 @@ namespace Scarecrow.StateMachine
         public override void Enter()
         {
             material.color = Color.red;
-            baseScarecrow.StartCoroutine(Burning());
+            burningRoutine = baseScarecrow.StartCoroutine(Burning());
         }
 
         public override void Exit()
         {
-            baseScarecrow.StopCoroutine(Burning());
+            baseScarecrow.StopCoroutine(burningRoutine);
             material.color = Color.gray;
         }
 
