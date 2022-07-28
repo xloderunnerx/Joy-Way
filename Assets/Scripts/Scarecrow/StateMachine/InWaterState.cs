@@ -13,13 +13,15 @@ namespace Scarecrow.StateMachine
         private BaseScarecrow baseScarecrow;
         private IntVariable healthPoints;
         private int damageBuff;
+        private Material material;
 
-        public InWaterState(BaseScarecrow scarecrow, BaseStateMachine stateMachine, IntVariable healthPoints)
+        public InWaterState(BaseScarecrow scarecrow, BaseStateMachine stateMachine, IntVariable healthPoints, Material material)
         {
             this.baseScarecrow = scarecrow;
             this.stateMachine = stateMachine;
             this.healthPoints = healthPoints;
             damageBuff = -10;
+            this.material = material;
         }
 
         public override void DealDamage(int value)
@@ -29,12 +31,12 @@ namespace Scarecrow.StateMachine
 
         public override void Enter()
         {
-            Debug.Log("Entering InWaterState.");
+            material.color = Color.blue;
         }
 
         public override void Exit()
         {
-            Debug.Log("Exiting InWaterState.");
+            material.color = Color.gray;
         }
 
         public override void Update()

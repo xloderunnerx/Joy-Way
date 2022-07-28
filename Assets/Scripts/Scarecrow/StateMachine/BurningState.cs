@@ -13,12 +13,14 @@ namespace Scarecrow.StateMachine
         private BaseScarecrow baseScarecrow;
         private IntVariable healthPoints;
         private int damageBuff;
+        private Material material;
 
-        public BurningState(BaseScarecrow scarecrow, BaseStateMachine stateMachine, IntVariable healthPoints)
+        public BurningState(BaseScarecrow scarecrow, BaseStateMachine stateMachine, IntVariable healthPoints, Material material)
         {
             this.baseScarecrow = scarecrow;
             this.stateMachine = stateMachine;
             this.healthPoints = healthPoints;
+            this.material = material;
             damageBuff = 10;
         }
 
@@ -29,17 +31,31 @@ namespace Scarecrow.StateMachine
 
         public override void Enter()
         {
-            Debug.Log("Entering BurningState.");
+            material.color = Color.red;
+            baseScarecrow.StartCoroutine(Burning());
         }
 
         public override void Exit()
         {
-            Debug.Log("Exiting BurningState.");
+            baseScarecrow.StopCoroutine(Burning());
+            material.color = Color.gray;
         }
 
         public override void Update()
         {
             
+        }
+
+        private IEnumerator Burning()
+        {
+            for(int i = 10; i >= 0; i--)
+            {
+                Debug.Log(i);
+                healthPoints.Variable -= 5;
+                yield return new WaitForSeconds(1f);
+            }
+            stateMachine.ChangeState(new DryState(baseScarecrow, stateMachine, healthPoints));
+            yield break;
         }
     }
 }
