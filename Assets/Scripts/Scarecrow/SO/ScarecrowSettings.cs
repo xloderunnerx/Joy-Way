@@ -1,4 +1,8 @@
 using Core.GenericVariable;
+using Core.StateMachine;
+using Scarecrow.Behaviour;
+using Scarecrow.Component;
+using Scarecrow.StateMachine;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using System.Collections;
@@ -10,10 +14,8 @@ namespace Scarecrow.SO
     [CreateAssetMenu(fileName = "ScarecrowSettings", menuName = "SO/Scarecrow/ScarecrowSettings")]
     public class ScarecrowSettings : SerializedScriptableObject
     {
-        [OdinSerialize] private IntVariable helathPoints;
-        [OdinSerialize] private IntVariable helathPointsMax;
+        [OdinSerialize] private IntVariable healthPointsMax;
 
-        public IntVariable HelathPoints { get => helathPoints; set => helathPoints = value; }
-        public IntVariable HelathPointsMax { get => helathPointsMax; set => helathPointsMax = value; }
+        public IntVariable HealthPointsMax { get => healthPointsMax; set => healthPointsMax = value; }
     }
 }

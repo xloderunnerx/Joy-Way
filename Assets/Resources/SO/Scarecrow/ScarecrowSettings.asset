@@ -16,16 +16,29 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 11400000, guid: fb4aecb4b6171364a8bbc8e2dce20173, type: 2}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 11400000, guid: c9a54ab712372b34cb5dd181d6097ab8, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: helathPoints
+    - Name: healthDisplayBehaviour
+      Entry: 7
+      Data: 0|Scarecrow.Behaviour.ChangeScaleColorHealthDisplayBehaviour, Assembly-CSharp
+    - Name: meshRenderer
       Entry: 10
       Data: 0
-    - Name: helathPointsMax
+    - Name: meshTransform
       Entry: 10
       Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: healthPointsMax
+      Entry: 10
+      Data: 2
+    - Name: idleState
+      Entry: 6
+      Data: 
