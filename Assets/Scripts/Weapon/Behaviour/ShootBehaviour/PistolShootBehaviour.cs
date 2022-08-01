@@ -14,12 +14,12 @@ namespace Weapon.Behaviour
             
         }
 
-        public void StartShoot(BaseWeapon baseWeapon)
+        public void StartShoot(BaseWeapon context)
         {
-            var baseWeaponSettings = baseWeapon.BaseWeaponSettings;
+            var baseWeaponSettings = context.BaseWeaponSettings;
             var bulletGameObject = GameObject.Instantiate(baseWeaponSettings.BulletPrefab);
-            bulletGameObject.transform.position = baseWeapon.ShootingPoint.transform.position;
-            bulletGameObject.GetComponent<Rigidbody>().AddForce(baseWeapon.transform.forward * baseWeaponSettings.BulletForceMultiplier, ForceMode.Impulse);
+            bulletGameObject.transform.position = context.ShootingPoint.transform.position;
+            bulletGameObject.GetComponent<Rigidbody>().AddForce(context.transform.forward * baseWeaponSettings.BulletForceMultiplier, ForceMode.Impulse);
         }
     }
 }
