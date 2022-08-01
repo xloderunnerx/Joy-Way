@@ -15,18 +15,25 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 4628344420249350643, guid: 81b3d0aa5f1823a4fb4e020d07745607, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
     - Name: shootBehaviour
-      Entry: 6
+      Entry: 7
+      Data: 0|Weapon.Behaviour.WaterBallShootBehaviour, Assembly-CSharp
+    - Name: 
+      Entry: 8
       Data: 
-    - Name: isShootOnce
-      Entry: 5
-      Data: true
+    - Name: bulletPrefab
+      Entry: 10
+      Data: 0
     - Name: damage
       Entry: 3
       Data: 0
+    - Name: bulletForceMultiplier
+      Entry: 4
+      Data: 10

@@ -2191,6 +2191,7 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 044a8aa0e94921144aece4a5fca8fb24, type: 2}
     - {fileID: 396230899}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -2198,11 +2199,11 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: baseWeaponSettings
-      Entry: 6
-      Data: 
-    - Name: shootingPoint
       Entry: 10
       Data: 0
+    - Name: shootingPoint
+      Entry: 10
+      Data: 1
 --- !u!1 &1364022544
 GameObject:
   m_ObjectHideFlags: 0
