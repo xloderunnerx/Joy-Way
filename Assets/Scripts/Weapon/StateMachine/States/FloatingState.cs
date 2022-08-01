@@ -33,6 +33,11 @@ namespace Weapon.StateMachine
             sequence.Kill();
         }
 
+        public override void LateUpdate()
+        {
+            
+        }
+
         public override void Update()
         {
             

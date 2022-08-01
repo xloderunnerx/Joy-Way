@@ -9,6 +9,8 @@ namespace Weapon.StateMachine
     {
         [OdinSerialize] private BaseWeaponState currentState;
 
+        public BaseWeaponState CurrentState { get => currentState; set => currentState = value; }
+
         public virtual void Init(BaseWeaponState baseWeaponState)
         {
             currentState = baseWeaponState;
