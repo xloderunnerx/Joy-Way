@@ -1404,6 +1404,12 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: weaponDropBehaviour
+      Entry: 7
+      Data: 1|Character.Behaviour.FromHandWeaponDropBehaviour, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: leftHand
       Entry: 10
       Data: 0

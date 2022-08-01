@@ -1,4 +1,5 @@
 using Character.Behaviour;
+using Core.Interface;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using System.Collections;
@@ -10,7 +11,8 @@ namespace Character.Component
 {
     public class BaseCharacter : SerializedMonoBehaviour
     {
-        [OdinSerialize] private IWeaponPickBehaviour weaponPickBehaviour;
+        [OdinSerialize] private IWeaponPickBehaviour<BaseWeapon, BaseHand> weaponPickBehaviour;
+        [OdinSerialize] private IWeaponDropBehaviour<IDropableItem<BaseWeapon, BaseHand>, BaseHand> weaponDropBehaviour;
         [OdinSerialize] private BaseHand leftHand;
         [OdinSerialize] private BaseHand rightHand;
 
@@ -25,9 +27,15 @@ namespace Character.Component
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Q))
-                leftHand.BaseWeapon = weaponPickBehaviour.Pick(leftHand);
+                if (LeftHand.BaseWeapon == null)
+                    leftHand.BaseWeapon = weaponPickBehaviour.Pick(leftHand);
+                else
+                    weaponDropBehaviour.Drop(leftHand.BaseWeapon, leftHand);
             if (Input.GetKeyDown(KeyCode.E))
-                rightHand.BaseWeapon = weaponPickBehaviour.Pick(rightHand);
+                if (RightHand.BaseWeapon == null)
+                    rightHand.BaseWeapon = weaponPickBehaviour.Pick(rightHand);
+                else
+                    weaponDropBehaviour.Drop(rightHand.BaseWeapon, rightHand);
         }
 
         private void OnDrawGizmos()

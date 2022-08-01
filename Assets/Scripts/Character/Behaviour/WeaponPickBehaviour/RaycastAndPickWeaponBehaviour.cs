@@ -8,7 +8,7 @@ using Weapon.Component;
 
 namespace Character.Behaviour
 {
-    public class RaycastAndPickWeaponBehaviour : IWeaponPickBehaviour
+    public class RaycastAndPickWeaponBehaviour : IWeaponPickBehaviour<BaseWeapon, BaseHand>
     {
         public BaseWeapon Pick(BaseHand baseHand)
         {

@@ -1,4 +1,3 @@
-using Character.Component;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +5,8 @@ using Weapon.Component;
 
 namespace Character.Behaviour
 {
-    public interface IWeaponPickBehaviour<T,K>
+    public interface IWeaponDropBehaviour<T, K>
     {
-        public T Pick(K owner);
+        public void Drop(T baseWeapon, K owner);
     }
 }

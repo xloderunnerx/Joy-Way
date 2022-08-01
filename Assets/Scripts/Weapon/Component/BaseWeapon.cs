@@ -9,7 +9,7 @@ using Weapon.StateMachine;
 
 namespace Weapon.Component
 {
-    public class BaseWeapon : SerializedMonoBehaviour, IPickableItem<BaseWeapon, BaseHand>
+    public class BaseWeapon : SerializedMonoBehaviour, IPickableItem<BaseWeapon, BaseHand>, IDropableItem<BaseWeapon, BaseHand>
     {
         [OdinSerialize] private BaseWeaponStateMachine stateMachine;
         private BaseWeaponState floatingState;
@@ -49,6 +49,12 @@ namespace Weapon.Component
         {
             inHandState = new InHandState(stateMachine, this, baseHand);
             stateMachine.ChangeState(inHandState);
+            return this;
+        }
+
+        public BaseWeapon Drop(BaseHand owner)
+        {
+            stateMachine.ChangeState(floatingState);
             return this;
         }
     }

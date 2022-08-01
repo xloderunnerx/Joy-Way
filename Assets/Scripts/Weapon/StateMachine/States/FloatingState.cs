@@ -16,16 +16,13 @@ namespace Weapon.StateMachine
         {
             this.baseWeapon = baseWeapon;
             this.baseWeaponStateMachine = stateMachine;
-            this.defaultPosition = defaultPosition;
-            sequence = DOTween.Sequence();   
+            this.defaultPosition = defaultPosition; 
         }
 
         public override void Enter()
         {
-            sequence.Append(baseWeapon.transform.DOMoveY(defaultPosition.y + 0.1f, 5f).SetEase(Ease.Linear));
-            sequence.Append(baseWeapon.transform.DOMoveY(defaultPosition.y - 0.1f, 5f).SetEase(Ease.Linear));
-            sequence.Append(baseWeapon.transform.DOMoveY(defaultPosition.y, 2.5f).SetEase(Ease.Linear));
-            sequence.SetLoops(-1);
+            sequence = DOTween.Sequence();
+            sequence.Append(baseWeapon.transform.DOMove(defaultPosition, 0.3f));
         }
 
         public override void Exit()
