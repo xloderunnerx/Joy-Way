@@ -12,15 +12,19 @@ namespace Scarecrow.StateMachine
     {
         private BaseScarecrow baseScarecrow;
         private IntVariable healthPoints;
+        private IntVariable burningDuration;
+        private IntVariable burningDurationDefault;
         private int damageBuff;
         private Material material;
         private Coroutine burningRoutine;
 
-        public BurningState(BaseScarecrow scarecrow, BaseStateMachine stateMachine, IntVariable healthPoints, Material material)
+        public BurningState(BaseScarecrow scarecrow, BaseStateMachine stateMachine, IntVariable healthPoints, IntVariable burningDuration, IntVariable burningDurationDefault, Material material)
         {
             this.baseScarecrow = scarecrow;
             this.stateMachine = stateMachine;
             this.healthPoints = healthPoints;
+            this.burningDuration = burningDuration;
+            this.burningDurationDefault = burningDurationDefault;
             this.material = material;
             damageBuff = 10;
         }
@@ -33,6 +37,7 @@ namespace Scarecrow.StateMachine
         public override void Enter()
         {
             material.color = Color.red;
+            burningDuration.Variable = burningDurationDefault.Variable;
             burningRoutine = baseScarecrow.StartCoroutine(Burning());
         }
 
@@ -49,7 +54,7 @@ namespace Scarecrow.StateMachine
 
         private IEnumerator Burning()
         {
-            for(int i = 10; i >= 0; i--)
+            for(burningDuration.Variable = burningDurationDefault.Variable; burningDuration.Variable > 0; burningDuration.Variable--)
             {
                 healthPoints.Variable -= 5;
                 yield return new WaitForSeconds(1f);

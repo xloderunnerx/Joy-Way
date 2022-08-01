@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Scarecrow.Behaviour
 {
-    public interface IHealthDisplayBehaviour<T>
+    public interface IDisplayBehaviour<T>
     {
-        public void UpdateDisplay(T context, int health, int maxHealth);
+        public void UpdateDisplay(T context);
     }
 }

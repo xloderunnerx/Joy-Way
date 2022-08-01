@@ -1,3 +1,4 @@
+using Core.GenericVariable;
 using DG.Tweening;
 using Scarecrow.Component;
 using Sirenix.Serialization;
@@ -7,14 +8,16 @@ using UnityEngine;
 
 namespace Scarecrow.Behaviour
 {
-    public class ChangeScaleColorHealthDisplayBehaviour : IHealthDisplayBehaviour<GameObject>
+    public class ChangeScaleColorHealthDisplayBehaviour : IDisplayBehaviour<GameObject>
     {
+        [OdinSerialize] private IntVariable health;
+        [OdinSerialize] private IntVariable healthMax;
         private MeshRenderer meshRenderer;
         private Transform meshTransform;
         private Vector3 defaultScale;
         private Sequence sequence;
 
-        public void UpdateDisplay(GameObject context, int health, int maxHealth)
+        public void UpdateDisplay(GameObject context)
         {
             meshRenderer = context.GetComponent<MeshRenderer>();
             meshTransform = context.transform;
@@ -23,7 +26,7 @@ namespace Scarecrow.Behaviour
             sequence.Kill();
             sequence = DOTween.Sequence();
 
-            var value = (float)((float)health / (float)maxHealth);
+            var value = (float)((float)health.Variable / (float)healthMax.Variable);
             sequence.Append(
                 meshTransform.DOScale(new Vector3(meshTransform.localScale.x, Mathf.Clamp(defaultScale.y * value, 0, defaultScale.y), meshTransform.localScale.z), 0.05f)
             );

@@ -15,6 +15,7 @@ namespace Scarecrow.Component
     {
         [OdinSerialize] private ScarecrowSettings scarecrowSettings;
         [OdinSerialize] private IntVariable healthPoints;
+        [OdinSerialize] private IntVariable burningDuration;
         [OdinSerialize] private Material material;
 
         private BaseStateMachine stateMachine;
@@ -50,7 +51,7 @@ namespace Scarecrow.Component
             stateMachine = new ScarecrowStateMachine();
             dryState = new DryState(this, stateMachine, healthPoints);
             inWaterState = new InWaterState(this, stateMachine, healthPoints, material);
-            burningState = new BurningState(this, stateMachine, healthPoints, material);
+            burningState = new BurningState(this, stateMachine, healthPoints, burningDuration, scarecrowSettings.BurningDurationDefault, material);
             stateMachine.InitStateMachine(dryState);
         }
 

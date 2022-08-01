@@ -15,7 +15,9 @@ namespace Scarecrow.SO
     public class ScarecrowSettings : SerializedScriptableObject
     {
         [OdinSerialize] private IntVariable healthPointsMax;
+        [OdinSerialize] private IntVariable burningDurationDefault;
 
         public IntVariable HealthPointsMax { get => healthPointsMax; set => healthPointsMax = value; }
+        public IntVariable BurningDurationDefault { get => burningDurationDefault; set => burningDurationDefault = value; }
     }
 }
