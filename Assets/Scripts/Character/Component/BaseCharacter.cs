@@ -36,6 +36,14 @@ namespace Character.Component
                     rightHand.BaseWeapon = weaponPickBehaviour.Pick(rightHand);
                 else
                     weaponDropBehaviour.Drop(rightHand.BaseWeapon, rightHand);
+            if (Input.GetKeyDown(KeyCode.Mouse0) && leftHand.BaseWeapon != null)
+                leftHand.BaseWeapon.StartShooting();
+            if (Input.GetKeyDown(KeyCode.Mouse1) && rightHand.BaseWeapon != null)
+                rightHand.BaseWeapon.StartShooting();
+            if (Input.GetKeyUp(KeyCode.Mouse0) && leftHand.BaseWeapon != null)
+                leftHand.BaseWeapon.StopShooting();
+            if (Input.GetKeyUp(KeyCode.Mouse1) && rightHand.BaseWeapon != null)
+                rightHand.BaseWeapon.StopShooting();
         }
 
         private void OnDrawGizmos()

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aacfc75b3da9024d8c6c50bf9012e00, type: 3}
+  m_Name: PistolSettings
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1800472358577921381, guid: 720d6ae4cb8282544a8351ff1c7c4b34, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: shootBehaviour
+      Entry: 7
+      Data: 0|Weapon.Behaviour.PistolShootBehaviour, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: bulletPrefab
+      Entry: 10
+      Data: 0
+    - Name: damage
+      Entry: 3
+      Data: 20
+    - Name: bulletForceMultiplier
+      Entry: 4
+      Data: 40
