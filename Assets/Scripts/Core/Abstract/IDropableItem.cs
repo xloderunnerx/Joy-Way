@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Core.Interface
+namespace Core.Abstract
 {
     public interface IDropableItem<T, K>
     {

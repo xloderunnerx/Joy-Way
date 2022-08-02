@@ -2,17 +2,19 @@ using Core.GenericVariable;
 using Scarecrow.Behaviour;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Scarecrow.Component
 {
-    public class BurningBar : SerializedMonoBehaviour
+    public class BurningBar : SerializedMonoBehaviour, IDisposable
     {
         [OdinSerialize] private IDisplayBehaviour<Material> burningDisplayBehaviour;
         [OdinSerialize] private IntVariable burningDuration;
         [OdinSerialize] private Material burningDisplayBar;
+
         private void Awake()
         {
             Dispose();

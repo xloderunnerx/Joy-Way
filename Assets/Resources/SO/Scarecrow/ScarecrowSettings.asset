@@ -18,6 +18,7 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: c9a54ab712372b34cb5dd181d6097ab8, type: 2}
     - {fileID: 11400000, guid: 9001acb903402354aaebb57073189f42, type: 2}
+    - {fileID: 11400000, guid: cca40085a8c7e7243ac90c9065b359cf, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -29,3 +30,6 @@ MonoBehaviour:
     - Name: burningDurationDefault
       Entry: 10
       Data: 1
+    - Name: wetnessMax
+      Entry: 10
+      Data: 2

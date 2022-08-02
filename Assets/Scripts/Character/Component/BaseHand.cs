@@ -1,4 +1,3 @@
-using Core.Interface;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using System.Collections;

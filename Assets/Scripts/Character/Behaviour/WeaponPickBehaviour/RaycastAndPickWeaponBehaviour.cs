@@ -1,5 +1,5 @@
 using Character.Component;
-using Core.Interface;
+using Core.Abstract;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;

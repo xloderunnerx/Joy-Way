@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1800472358577921386}
   - component: {fileID: 1800472358577921387}
   - component: {fileID: -10139697071203922}
+  - component: {fileID: 5393778513127543458}
   m_Layer: 0
   m_Name: PistolBullet
   m_TagString: Untagged
@@ -112,3 +113,33 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &5393778513127543458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800472358577921381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154372c4664d18f45b24c6592577d298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: bulletHitBehaviour
+      Entry: 7
+      Data: 0|Bullet.Behaviour.SimpleDamageBulletHitBehaviour, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 

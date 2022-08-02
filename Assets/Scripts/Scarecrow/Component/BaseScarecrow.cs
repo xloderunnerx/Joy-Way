@@ -1,5 +1,5 @@
 using Core.GenericVariable;
-using Core.StateMachine;
+using Core.Abstract;
 using Scarecrow.Behaviour;
 using Scarecrow.SO;
 using Scarecrow.StateMachine;
@@ -8,24 +8,18 @@ using Sirenix.Serialization;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Scarecrow.Data;
 
 namespace Scarecrow.Component
 {
-    public class BaseScarecrow : SerializedMonoBehaviour
+    public class BaseScarecrow : SerializedMonoBehaviour, IHitable, IWet, IBurning
     {
         [OdinSerialize] private ScarecrowSettings scarecrowSettings;
-        [OdinSerialize] private IntVariable healthPoints;
-        [OdinSerialize] private IntVariable burningDuration;
-        [OdinSerialize] private Material material;
-
-        private BaseStateMachine stateMachine;
-        private DryState dryState;
-        private InWaterState inWaterState;
-        private BurningState burningState;
+        [OdinSerialize] private BaseScarecrowData baseScarecrowData;
         
         private void Awake()
         {
-            healthPoints.Variable = scarecrowSettings.HealthPointsMax.Variable;
+            baseScarecrowData.healthPoints.Variable = scarecrowSettings.HealthPointsMax.Variable;
         }
 
         private void Start()
@@ -35,29 +29,29 @@ namespace Scarecrow.Component
 
         private void Update()
         {
-            stateMachine.CurrentState.Update();
+            baseScarecrowData.stateMachine.CurrentState.Update();
             if (Input.GetKeyDown(KeyCode.Alpha1))
-                stateMachine.ChangeState(dryState);
+                baseScarecrowData.stateMachine.ChangeState(baseScarecrowData.dryState);
             if (Input.GetKeyDown(KeyCode.Alpha2))
-                stateMachine.ChangeState(inWaterState);
+                baseScarecrowData.stateMachine.ChangeState(baseScarecrowData.inWaterState);
             if (Input.GetKeyDown(KeyCode.Alpha3))
-                stateMachine.ChangeState(burningState);
-            if (Input.GetKeyDown(KeyCode.Alpha4))
-                DealDamage(20);
+                baseScarecrowData.stateMachine.ChangeState(baseScarecrowData.burningState);
         }
 
         private void InitStateMachine()
         {
-            stateMachine = new ScarecrowStateMachine();
-            dryState = new DryState(this, stateMachine, healthPoints);
-            inWaterState = new InWaterState(this, stateMachine, healthPoints, material);
-            burningState = new BurningState(this, stateMachine, healthPoints, burningDuration, scarecrowSettings.BurningDurationDefault, material);
-            stateMachine.InitStateMachine(dryState);
+            baseScarecrowData.stateMachine = new BaseScarecrowStateMachine();
+            baseScarecrowData.dryState = new DryState(this, baseScarecrowData, scarecrowSettings);
+            baseScarecrowData.inWaterState = new InWaterState(this, baseScarecrowData, scarecrowSettings);
+            baseScarecrowData.burningState = new BurningState(this, baseScarecrowData, scarecrowSettings);
+            baseScarecrowData.stateMachine.InitStateMachine(baseScarecrowData.dryState);
         }
 
-        public void DealDamage(int damage)
-        {
-            stateMachine.CurrentState.DealDamage(damage);
-        }
+        public void Hit(int value) => baseScarecrowData.stateMachine.CurrentState.Hit(value);
+
+        public void AddBurning(int value) => baseScarecrowData.stateMachine.CurrentState.AddBurning(value);
+
+        public void AddWetness(int value) => baseScarecrowData.stateMachine.CurrentState.AddWetness(value);
+
     }
 }

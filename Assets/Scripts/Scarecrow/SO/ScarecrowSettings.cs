@@ -1,5 +1,4 @@
 using Core.GenericVariable;
-using Core.StateMachine;
 using Scarecrow.Behaviour;
 using Scarecrow.Component;
 using Scarecrow.StateMachine;
@@ -16,8 +15,10 @@ namespace Scarecrow.SO
     {
         [OdinSerialize] private IntVariable healthPointsMax;
         [OdinSerialize] private IntVariable burningDurationDefault;
+        [OdinSerialize] private IntVariable wetnessMax;
 
         public IntVariable HealthPointsMax { get => healthPointsMax; set => healthPointsMax = value; }
         public IntVariable BurningDurationDefault { get => burningDurationDefault; set => burningDurationDefault = value; }
+        public IntVariable WetnessMax { get => wetnessMax; set => wetnessMax = value; }
     }
 }

@@ -1,5 +1,5 @@
 using Character.Behaviour;
-using Core.Interface;
+using Core.Abstract;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using System.Collections;
