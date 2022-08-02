@@ -16,7 +16,7 @@ namespace Weapon.StateMachine
 
         public ShootingState(BaseWeaponStateMachine stateMachine, BaseWeapon baseWeapon, BaseHand baseHand, BaseWeaponSettings baseWeaponSettings)
         {
-            this.baseWeaponSettings = baseWeaponSettings;
+            this.baseWeaponSettings = GameObject.Instantiate(baseWeaponSettings);
             this.baseHand = baseHand;
             this.baseWeaponStateMachine = stateMachine;
             this.baseWeapon = baseWeapon;

@@ -40,6 +40,7 @@ namespace Character.Component
                 leftHand.BaseWeapon.StartShooting();
             if (Input.GetKeyDown(KeyCode.Mouse1) && rightHand.BaseWeapon != null)
                 rightHand.BaseWeapon.StartShooting();
+
             if (Input.GetKeyUp(KeyCode.Mouse0) && leftHand.BaseWeapon != null)
                 leftHand.BaseWeapon.StopShooting();
             if (Input.GetKeyUp(KeyCode.Mouse1) && rightHand.BaseWeapon != null)

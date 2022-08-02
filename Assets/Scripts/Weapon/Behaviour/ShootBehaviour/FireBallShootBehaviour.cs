@@ -21,7 +21,7 @@ namespace Weapon.Behaviour
         public void EndShoot(BaseWeapon context)
         {
             bulletGameObject.GetComponent<ParticleSystem>().Stop();
-            GameObject.Destroy(bulletGameObject, 5.0f);
+            GameObject.Destroy(bulletGameObject, 5);
         }
     }
 }

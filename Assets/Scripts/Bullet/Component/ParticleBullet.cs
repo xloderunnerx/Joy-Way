@@ -6,10 +6,6 @@ namespace Bullet.Component
 {
     public class ParticleBullet : BaseBullet
     {
-        private void Awake()
-        {
-        }
-
         private void OnParticleCollision(GameObject other)
         {
             bulletHitBehaviour.Hit(this, other.GetComponent<Collider>());
