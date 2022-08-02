@@ -1,3 +1,4 @@
+using Bullet.Component;
 using Core.Abstract;
 using Sirenix.Serialization;
 using System.Collections;
@@ -9,7 +10,7 @@ namespace Bullet.Behaviour
     public class FireBulletHitBehaviour : IBulletHitBehaviour
     {
         [OdinSerialize] private int fireValue;
-        public void Hit(Collider collider)
+        public void Hit(BaseBullet baseBullet, Collider collider)
         {
             var iBurning = collider.GetComponentInParent<IBurning>();
             if(iBurning != null)

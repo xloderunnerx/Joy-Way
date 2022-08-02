@@ -11,9 +11,14 @@ namespace Bullet.Component
     {
         [OdinSerialize] protected IBulletHitBehaviour bulletHitBehaviour;
 
+        private void Awake()
+        {
+
+        }
+
         private void OnTriggerEnter(Collider other)
         {
-            bulletHitBehaviour.Hit(other);
+            bulletHitBehaviour.Hit(this, other);
         }
     }
 }

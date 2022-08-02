@@ -143,3 +143,12 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: bulletDestroyBehaviour
+      Entry: 7
+      Data: 1|Bullet.Behaviour.TimerBulletDestroyBehaviour, Assembly-CSharp
+    - Name: timer
+      Entry: 4
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 

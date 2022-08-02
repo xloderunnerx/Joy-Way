@@ -1,3 +1,4 @@
+using Bullet.Component;
 using Core.Abstract;
 using Sirenix.Serialization;
 using System.Collections;
@@ -10,7 +11,7 @@ namespace Bullet.Behaviour
     {
         [OdinSerialize] private int damage;
 
-        public void Hit(Collider collider)
+        public void Hit(BaseBullet baseBullet, Collider collider)
         {
             var iHitable = collider.gameObject.GetComponentInParent<IHitable>();
             if (iHitable != null)

@@ -1,3 +1,4 @@
+using Bullet.Component;
 using Core.Abstract;
 using Sirenix.Serialization;
 using System.Collections;
@@ -10,11 +11,14 @@ namespace Bullet.Behaviour
     {
         [OdinSerialize] private int waterCount;
 
-        public void Hit(Collider collider)
+        public void Hit(BaseBullet baseBullet, Collider collider)
         {
             var iWet = collider.gameObject.GetComponentInParent<IWet>();
             if (iWet != null)
+            {
                 iWet.AddWetness(waterCount);
+                GameObject.Destroy(baseBullet.gameObject);
+            }
         }
     }
 }

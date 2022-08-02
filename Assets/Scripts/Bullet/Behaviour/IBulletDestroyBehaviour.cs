@@ -5,8 +5,8 @@ using UnityEngine;
 
 namespace Bullet.Behaviour
 {
-    public interface IBulletHitBehaviour
+    public interface IBulletDestroyBehaviour
     {
-        public void Hit(BaseBullet baseBullet, Collider collider);
+        public void Destroy(BaseBullet baseBullet);
     }
 }

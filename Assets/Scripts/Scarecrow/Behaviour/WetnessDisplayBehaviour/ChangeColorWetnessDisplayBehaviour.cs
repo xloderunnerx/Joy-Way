@@ -14,7 +14,6 @@ namespace Scarecrow.Behaviour
         public void UpdateDisplay(Material context)
         {
             var wetnessRatio = (float)((float)wetness.Variable / (float)wetnessMax.Variable);
-            Debug.Log(wetnessRatio);
             context.DOColor(Color.HSVToRGB(0.5f, wetnessRatio, 1), 0.25f);
         }
     }
