@@ -9,10 +9,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Scarecrow.Data;
+using System;
 
 namespace Scarecrow.Component
 {
-    public class BaseScarecrow : SerializedMonoBehaviour, IHitable, IWet, IBurning
+    public class BaseScarecrow : SerializedMonoBehaviour, IHitable, IWet, IBurning, IDisposable
     {
         [OdinSerialize] private ScarecrowSettings scarecrowSettings;
         [OdinSerialize] private BaseScarecrowData baseScarecrowData;
@@ -20,6 +21,7 @@ namespace Scarecrow.Component
         private void Awake()
         {
             baseScarecrowData.healthPoints.Variable = scarecrowSettings.HealthPointsMax.Variable;
+            baseScarecrowData.healthPoints.OnVariableChanged += CheckHealthPoints;
         }
 
         private void Start()
@@ -30,21 +32,19 @@ namespace Scarecrow.Component
         private void Update()
         {
             baseScarecrowData.stateMachine.CurrentState.Update();
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-                baseScarecrowData.stateMachine.ChangeState(baseScarecrowData.dryState);
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-                baseScarecrowData.stateMachine.ChangeState(baseScarecrowData.inWaterState);
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-                baseScarecrowData.stateMachine.ChangeState(baseScarecrowData.burningState);
         }
 
         private void InitStateMachine()
         {
             baseScarecrowData.stateMachine = new BaseScarecrowStateMachine();
-            baseScarecrowData.dryState = new DryState(this, baseScarecrowData, scarecrowSettings);
-            baseScarecrowData.inWaterState = new InWaterState(this, baseScarecrowData, scarecrowSettings);
-            baseScarecrowData.burningState = new BurningState(this, baseScarecrowData, scarecrowSettings);
-            baseScarecrowData.stateMachine.InitStateMachine(baseScarecrowData.dryState);
+            var dryState = new DryState(this, baseScarecrowData, scarecrowSettings);
+            baseScarecrowData.stateMachine.InitStateMachine(dryState);
+        }
+
+        private void CheckHealthPoints(int value)
+        {
+            if (baseScarecrowData.healthPoints.Variable <= 0)
+                baseScarecrowData.stateMachine.ChangeState(new DieState(this, baseScarecrowData, scarecrowSettings));
         }
 
         public void Hit(int value) => baseScarecrowData.stateMachine.CurrentState.Hit(value);
@@ -53,5 +53,14 @@ namespace Scarecrow.Component
 
         public void AddWetness(int value) => baseScarecrowData.stateMachine.CurrentState.AddWetness(value);
 
+        public void Dispose()
+        {
+            baseScarecrowData.healthPoints.OnVariableChanged -= CheckHealthPoints;
+        }
+
+        private void OnDestroy()
+        {
+            Dispose();
+        }
     }
 }

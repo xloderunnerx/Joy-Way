@@ -13,10 +13,6 @@ namespace Scarecrow.Data
         public IntVariable healthPoints;
         public IntVariable burningDuration;
         public IntVariable wetness;
-
         public BaseScarecrowStateMachine stateMachine;
-        public BaseScarecrowState dryState;
-        public BaseScarecrowState inWaterState;
-        public BaseScarecrowState burningState;
     }
 }
